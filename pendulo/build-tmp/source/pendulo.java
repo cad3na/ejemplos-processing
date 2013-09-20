@@ -21,11 +21,13 @@ int colorFondo    = 200;
 int colorGrafica  = 100;
 
 int m = 100;
+int f = 30;
 
 float g   = 9.81f;
 float tau = TWO_PI;
 
 public void setup(){
+  frameRate(f);
 	size(tamanoGrafica, tamanoGrafica);
 	hint(ENABLE_STROKE_PURE);
   stroke(colorGrafica);
@@ -62,7 +64,7 @@ class Pendulo{
   }
 
   public void actualizar(){
-    al = -1*g*sin(th)/r;
+    al = -1*g*sin(th)/(r*f);
     om += al;
     th += om;
     coorMasa.x = coorOrigen.x + r*sin(th);
