@@ -39,7 +39,7 @@ class Pendulo{
     th = tau/8;
     om = 0;
     al = 0;
-    coorMasa = new PVector(origenX + sin(th), origenY + r*cos(th));
+    coorMasa = new PVector(origenX + r*sin(th), origenY + r*cos(th));
   }
 
   void dibujar(){
