@@ -28,7 +28,7 @@ int tamanoGrafica = 500;
 int colorFondo    = 200;
 // Se declaran variables utiles con respecto a la f\u00edsica.
 int m = 100;
-int f = 30;
+int f = 60;
 float g   = 9.81f;
 float tau = TWO_PI;
 // Se inicializa el entorno grafico.
@@ -45,7 +45,7 @@ public void draw(){
 }
 // Se declara la clase Pendulo.
 class Pendulo{
-  int colorGrafica  = color(0xff63AA37);;
+  int colorGrafica = color(0xff63AA37);
   PVector coorOrigen;
   PVector coorMasa;
   float r;

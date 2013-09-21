@@ -12,7 +12,7 @@ int tamanoGrafica = 500;
 int colorFondo    = 200;
 // Se declaran variables utiles con respecto a la física.
 int m = 100;
-int f = 30;
+int f = 60;
 float g   = 9.81;
 float tau = TWO_PI;
 // Se inicializa el entorno grafico.
@@ -20,7 +20,7 @@ void setup(){
   frameRate(f);                                       // Se actualiza la pantalla 30 veces cada segundo
 	size(tamanoGrafica, tamanoGrafica);                 // Se define el tamaño de pantalla en 500px x 500px
 	hint(ENABLE_STROKE_PURE);                           // Se piden trazos limpios
-  s = new Sled(10, tamanoGrafica/2, 3, 0);
+  s = new Sled(10, tamanoGrafica/2, 3*m/f, 0);
 }
 // Se dibuja el pendulo.
 void draw(){
@@ -44,7 +44,7 @@ class Sled{
   void dibujar(){
     stroke(colorGrafica);
     fill(colorGrafica);
-    rect(coordenada.x, coordenada.y, 20, 20, 4);
+    rect(coordenada.x, coordenada.y, 0.2*m, 0.2*m, 4);
   }
   // Se declara la función que actualizará la posición de la masa del pendulo.
   void actualizar(){
