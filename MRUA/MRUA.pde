@@ -1,8 +1,8 @@
 /*
- * MRU
+ * MRUA
  * por Roberto Cadena Vega
  *
- * Crea una animación de una esfera en Movimiento Rectilineo Uniforme.
+ * Crea una animación de una esfera en Movimiento Rectilineo Uniformemente Acelarado.
  */
 
 // Se declara el objeto e de la clase Sled
@@ -20,7 +20,7 @@ void setup(){
   frameRate(f);                                       // Se actualiza la pantalla 30 veces cada segundo
 	size(tamanoGrafica, tamanoGrafica);                 // Se define el tamaño de pantalla en 500px x 500px
 	hint(ENABLE_STROKE_PURE);                           // Se piden trazos limpios
-  s = new Sled(10, tamanoGrafica/2, 3, 0);
+  s = new Sled(10, tamanoGrafica/2, 3, 0, 1, 0);
 }
 // Se dibuja el pendulo.
 void draw(){
@@ -29,16 +29,16 @@ void draw(){
 }
 // Se declara la clase Pendulo.
 class Sled{
-  color colorGrafica  = color(#45B3DE);
+  color colorGrafica  = color(#D67E2D);
   PVector coordenada;
   PVector velocidad;
   PVector aceleracion;
   // Se declara el constructor de la clase Pendulo.
-  Sled(int origenX, int origenY, int velocidadX, int velocidadY) {
+  Sled(int origenX, int origenY, int velocidadX, int velocidadY, int aceleracionX, int aceleracionY) {
     rectMode(CENTER);
     coordenada  = new PVector(origenX, origenY);
     velocidad   = new PVector(velocidadX, velocidadY);
-    aceleracion = new PVector(0, 0);
+    aceleracion = new PVector(aceleracionX, aceleracionY);
   }
   // Se declara la función que desplegara en pantalla el pendulo.
   void dibujar(){
