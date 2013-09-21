@@ -20,12 +20,12 @@ public class MRU extends PApplet {
  *
  * Crea una animaci\u00f3n de una esfera en Movimiento Rectilineo Uniforme.
  */
+
 // Se declara el objeto e de la clase Esfera
-Esfera e;
+Sled s;
 // Se declaran variables utiles con respecto al aspecto en pantalla.
 int tamanoGrafica = 500;
 int colorFondo    = 200;
-int colorGrafica  = 100;
 // Se declaran variables utiles con respecto a la f\u00edsica.
 int m = 100;
 int f = 30;
@@ -36,34 +36,36 @@ public void setup(){
   frameRate(f);                                       // Se actualiza la pantalla 30 veces cada segundo
 	size(tamanoGrafica, tamanoGrafica);                 // Se define el tama\u00f1o de pantalla en 500px x 500px
 	hint(ENABLE_STROKE_PURE);                           // Se piden trazos limpios
-  stroke(colorGrafica);                               // El color para las lineas es gris oscuro
-  fill(colorGrafica);                                 // El color para el relleno de las figuras es gris oscuro
-  e = new Esfera(10, tamanoGrafica/2, 5, 0);
+  s = new Sled(10, tamanoGrafica/2, 5, 0);
 }
 // Se dibuja el pendulo.
 public void draw(){
   background(colorFondo); // El color de fondo es gris claro
-  e.animar();
+  s.animar();
 }
 // Se declara la clase Pendulo.
-class Esfera{
+class Sled{
+  int colorGrafica  = color(0xff45B3DE);
   PVector coordenada;
   PVector velocidad;
   PVector aceleracion;
   // Se declara el constructor de la clase Pendulo.
-  Esfera(int origenX, int origenY, int velocidadX, int velocidadY) {
-    coordenada = new PVector(origenX, origenY);
-    velocidad = new PVector(velocidadX, velocidadY);
+  Sled(int origenX, int origenY, int velocidadX, int velocidadY) {
+    rectMode(CENTER);
+    coordenada  = new PVector(origenX, origenY);
+    velocidad   = new PVector(velocidadX, velocidadY);
     aceleracion = new PVector(0, 0);
   }
   // Se declara la funci\u00f3n que desplegara en pantalla el pendulo.
   public void dibujar(){
-    ellipse(coordenada.x, coordenada.y, 20, 20);
+    stroke(colorGrafica);
+    fill(colorGrafica);
+    rect(coordenada.x, coordenada.y, 20, 20, 4);
   }
   // Se declara la funci\u00f3n que actualizar\u00e1 la posici\u00f3n de la masa del pendulo.
   public void actualizar(){
-    velocidad.x += aceleracion.x;
-    velocidad.y += aceleracion.y;
+    velocidad.x  += aceleracion.x;
+    velocidad.y  += aceleracion.y;
     coordenada.x += velocidad.x;
     coordenada.y += velocidad.y;
     coordenada.x = coordenada.x % tamanoGrafica;

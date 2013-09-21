@@ -10,7 +10,6 @@ Pendulo p;
 // Se declaran variables utiles con respecto al aspecto en pantalla.
 int tamanoGrafica = 500;
 int colorFondo    = 200;
-int colorGrafica  = 100;
 // Se declaran variables utiles con respecto a la física.
 int m = 100;
 int f = 30;
@@ -21,8 +20,6 @@ void setup(){
   frameRate(f);                                       // Se actualiza la pantalla 30 veces cada segundo
 	size(tamanoGrafica, tamanoGrafica);                 // Se define el tamaño de pantalla en 500px x 500px
 	hint(ENABLE_STROKE_PURE);                           // Se piden trazos limpios
-  stroke(colorGrafica);                               // El color para las lineas es gris oscuro
-  fill(colorGrafica);                                 // El color para el relleno de las figuras es gris oscuro
   p = new Pendulo(tamanoGrafica/2, tamanoGrafica/2);  // Se inicializa el pendulo con origen en el centro de la pantalla
 }
 // Se dibuja el pendulo.
@@ -32,6 +29,7 @@ void draw(){
 }
 // Se declara la clase Pendulo.
 class Pendulo{
+  color colorGrafica  = color(#63AA37);;
   PVector coorOrigen;
   PVector coorMasa;
   float r;
@@ -49,6 +47,8 @@ class Pendulo{
   }
   // Se declara la función que desplegara en pantalla el pendulo.
   void dibujar(){
+    stroke(colorGrafica);
+    fill(colorGrafica);
     line(coorOrigen.x, coorOrigen.y, coorMasa.x, coorMasa.y);
     ellipse(coorMasa.x, coorMasa.y, 20, 20);
   }
