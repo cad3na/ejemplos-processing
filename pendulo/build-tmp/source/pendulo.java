@@ -34,8 +34,8 @@ float tau = TWO_PI;
 // Se inicializa el entorno grafico.
 public void setup(){
   frameRate(f);                                       // Se actualiza la pantalla 30 veces cada segundo
-	size(tamanoGrafica, tamanoGrafica);                 // Se define el tama\u00f1o de pantalla en 500px x 500px
-	hint(ENABLE_STROKE_PURE);                           // Se piden trazos limpios
+  size(tamanoGrafica, tamanoGrafica);                 // Se define el tama\u00f1o de pantalla en 500px x 500px
+  hint(ENABLE_STROKE_PURE);                           // Se piden trazos limpios
   p = new Pendulo(tamanoGrafica/2, tamanoGrafica/2);  // Se inicializa el pendulo con origen en el centro de la pantalla
 }
 // Se dibuja el pendulo.
